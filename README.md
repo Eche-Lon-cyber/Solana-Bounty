@@ -12,7 +12,7 @@ This repository is divided into code examples and educational content.
 
 ### 1. The Deep Dive
 For a detailed written explanation of the logic behind these vulnerabilities, please read the included guide:
-👉 **[DEEP_DIVE.md](./DEEP_DIVE.md)**
+**[DEEP_DIVE.md](./DEEP_DIVE.md)**
 
 ### 2. Security Patterns Covered
 The code examples are located in `programs/security-patterns/src/instructions/`.
@@ -27,7 +27,7 @@ The code examples are located in `programs/security-patterns/src/instructions/`.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 Follow these steps to explore the code and run the build.
 
