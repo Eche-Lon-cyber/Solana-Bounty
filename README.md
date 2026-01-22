@@ -2,7 +2,7 @@
 
 **An educational repository demonstrating common Solana security vulnerabilities and their fixes using the Anchor framework.**
 
-This repository serves as a practical guide for developers to understand the "What" went wrong and "How" it is solved in Solana account security. It contains 5 distinct architectural patterns, presenting both a **broken (vulnerable)** implementation and a **fixed (secure)** implementation side-by-side.
+This repository serves as a practical guide for developers to understand "What" went wrong and "How" it is solved in Solana account security. It contains 5 distinct architectural patterns, presenting both a **broken (vulnerable)** implementation and a **fixed or secure** implementation side-by-side.
 
 > **Note:** This project is a submission for the SuperteamNG Security Bounty.
 
