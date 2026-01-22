@@ -57,11 +57,11 @@ The code examples are located in `programs/security-patterns/src/instructions/`.
 
 | Pattern | Vulnerability | Why it matters |
 | :--- | :--- | :--- |
-| **01. Missing Signer** | `ex01_missing_signer.rs` | Prevents unauthorized users from performing privileged actions (e.g., changing admins). |
-| **02. Type Cosplay** | `ex02_missing_owner.rs` | Prevents malicious users from injecting fake data accounts owned by other programs. |
-| **03. Arbitrary CPI** | `ex03_arbitrary_cpi.rs` | Ensures Cross-Program Invocations interact only with legitimate programs (e.g., real SPL Token). |
-| **04. Missing Relationship** | `ex04_missing_constraint.rs` | Uses `has_one` to ensure data accounts belong to the specific signer trying to use them. |
-| **05. Re-Initialization** | `ex05_reinitialization.rs` | Prevents attackers from resetting an already active account's state. |
+| **01. Missing Signer** | `ex01_missing_signer.rs` | This prevents unauthorized users from performing privileged actions (e.g., changing admins). |
+| **02. Type Cosplay** | `ex02_missing_owner.rs` | It prevents malicious users from injecting fake data accounts owned by other programs. |
+| **03. Arbitrary CPI** | `ex03_arbitrary_cpi.rs` | This ensures Cross-Program Invocations interact only with legitimate programs (e.g., real SPL Token). |
+| **04. Missing Relationship** | `ex04_missing_constraint.rs` | This utilizes `has_one` to ensure data accounts belong to the specific signer trying to use them. |
+| **05. Re-Initialization** | `ex05_reinitialization.rs` | This prevents attackers from resetting an already active account's state. |
 
 ---
 
