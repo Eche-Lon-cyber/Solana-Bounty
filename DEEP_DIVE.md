@@ -7,13 +7,15 @@ This deep dive explores five critical security patterns that every Solana develo
 1. Missing Signer Checks
 The Vulnerability:
 The most basic Solana security rule is verifying who is calling the instruction. If a sensitive action like withdrawing funds or changing an admin takes an account as a parameter but doesn't check if that account signed the transaction, anyone can impersonate that account.
-The Fix:
+
+Solved:
 In Anchor, use the Signer<'info> type. If you use AccountInfo<'info> without a #[account(signer)] constraint, the program blindly accepts the public key without proving ownership.
 
 2. Missing Owner & Type Checks
 The Vulnerability:
 On Solana, bytes are just bytes. A malicious user can create a generic account, fill it with data that looks like your UserStats struct, and pass it to your program. If you don't check that the account is actually owned by your program, you might process fake data as if it were valid state.
-The Fix:
+
+Solved:
 Anchor's Account<'info, MyType> wrapper automatically checks that:
 The account is owned by the executing program (via program_id).
 The account discriminator matches the expected type.
@@ -22,19 +24,22 @@ Using raw AccountInfo bypasses these safety checks.
 3. Arbitrary CPI (Cross-Program Invocation)
 The Vulnerability:
 When your program interacts with another program, you must pass the target program's address as an account. If you don't verify this address, an attacker can pass a malicious program that mimics the SPL Token interface but steals funds or fakes a transfer success.
-The Fix:
+
+Solved:
 Always verify the program_id of the program you are calling. In Anchor, using Program<'info, Token> ensures the passed account is strictly the official SPL Token Program.
 
 4. Missing Relationship Constraints
 The Vulnerability:
 Even if all accounts are valid and owned by the right programs, they might not belong to each other. For example, allowing Alice to withdraw tokens from a vault that belongs to Bob.
-The Fix:
+
+Solved:
 Use the has_one constraint. #[account(has_one = authority)] ensures that the authority field stored inside the data account matches the authority key passed in the transaction.
 
 5. Re-Initialization Attacks
 The Vulnerability:
 If an instruction initializes an account (sets its state) but doesn't check if it has already been initialized, an attacker can call it again to reset the state—wiping out user balances or resetting admin controls.
-The Fix:
+
+Solved:
 Anchor's init constraint handles this safely by checking the discriminator. If you are doing manual initialization, you must verify the account data is empty or use a boolean flag like is_initialized to prevent overwrites.
 
 
